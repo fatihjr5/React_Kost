@@ -59,7 +59,9 @@ function Checkout() {
                 </div>
               </div>
               <button className="ml-auto w-full py-2 bg-gray-300 text-gray-600 rounded-md">Batal</button>
-              <button className="ml-auto w-full py-2 bg-[#7000FD] text-white rounded-md">Kirim Sekarang</button>
+              <button className="ml-auto w-full py-2 bg-[#7000FD] text-white rounded-md">
+                <Link to="/success">Kirim Sekarang</Link>
+              </button>
             </section>
         </div>
     </Main>
