@@ -1,5 +1,5 @@
 import { Breadcrumb, Input } from "antd"
-import Main from "../../layout"
+import {Main} from "../../layout"
 import { Link } from "react-router-dom"
 
 function Checkout() {

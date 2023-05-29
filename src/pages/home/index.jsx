@@ -1,5 +1,5 @@
 import { Select } from "antd"
-import Main from "../../layout"
+import {Main} from "../../layout"
 import Cards from "../../components/cards"
 
 function Home() {

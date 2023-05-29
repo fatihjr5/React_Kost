@@ -7,6 +7,8 @@ import Home from './pages/home/index';
 import Detail from './pages/detail/index';
 import Checkout from './pages/checkout';
 import Success from './pages/success';
+import Admin from './pages/admin';
+import Penyewa from './pages/admin/penyewa';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,14 @@ const router = createBrowserRouter([
   {
     path: "success",
     element: (<Success/>)
+  },
+  {
+    path: "admin",
+    element: (<Admin/>)
+  },
+  {
+    path: "penyewa",
+    element: (<Penyewa/>)
   },
 ])
 

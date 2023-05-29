@@ -1,5 +1,5 @@
 import { Breadcrumb } from "antd"
-import Main from "../../layout"
+import {Main} from "../../layout"
 import { Link } from "react-router-dom"
 
 function Detail() {
@@ -38,7 +38,7 @@ function Detail() {
         </div>
         {/* Pembayaran */}
         <div className="lg:ml-auto">
-          <div className="p-4 rounded-xl bg-white shadow-md w-full lg:w-96">
+          <div className="fixed bottom-5 inset-x-0 mx-auto w-11/12 lg:relative p-4 rounded-xl bg-white shadow-md lg:w-96">
             <section className="flex flex-col space-y-0.5">
               <h5 className="text-base text-gray-400"><span className="text-3xl font-semibold text-black">Rp 775.000</span> / bulan</h5>
               <p className="text-xs font-normal text-gray-400">*Harga sudah mencakup semuanya</p>
@@ -51,8 +51,8 @@ function Detail() {
                 <button className="w-full bg-[#7000FD] text-white rounded-md py-2 text-center">Sewa Sekarang</button>
               </Link>
             </section>
-            <hr className="my-4"/>
-            <section className="flex flex-col space-y-0.5">
+            <hr className="my-4 hidden md:block"/>
+            <section className="md:flex flex-col space-y-0.5 hidden">
               <h5 className="text-base">Metode Pembayaran</h5>
               <p className="text-xs font-normal text-gray-400">*Pembayaran melalui transfer manual dengan disertakan bukti transfer</p>
             </section>
