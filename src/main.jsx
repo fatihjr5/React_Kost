@@ -16,11 +16,11 @@ const router = createBrowserRouter([
     element: (<Home/>)
   },
   {
-    path: "detail",
+    path: "/detail/:name",
     element: (<Detail/>)
   },
   {
-    path: "checkout",
+    path: "/checkout/:name",
     element: (<Checkout/>)
   },
   {
@@ -28,11 +28,11 @@ const router = createBrowserRouter([
     element: (<Success/>)
   },
   {
-    path: "admin",
+    path: "/admin",
     element: (<Admin/>)
   },
   {
-    path: "penyewa",
+    path: "/penyewa",
     element: (<Penyewa/>)
   },
 ])

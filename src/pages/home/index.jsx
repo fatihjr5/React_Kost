@@ -1,34 +1,49 @@
-import { Select } from "antd"
-import {Main} from "../../layout"
-import Cards from "../../components/cards"
+import { useState, useEffect } from "react";
+import { Main } from "../../layout";
+// import Cards from "../../components/cards";
+import supabase from "../../supabase";
+import Cards from "../../components/cards";
 
 function Home() {
-    const filters = [
-        {
-            value: 'Harga Terendah',
-            label: 'Harga Terendah'
-        },
-        {
-            value: 'Harga Tertinggi',
-            label: 'Harga Tertinggi'
-        },
-    ]
+  const [fetchError, setFetchError] = useState(null);
+  const [items,setItems] = useState([]);
+
+  useEffect(() => {
+    const getItems = async() => {
+      const {data, error} = await supabase
+      .from('tipe_kos')
+      .select('*')
+
+      if(error) {
+        setFetchError('No data show')
+        setItems(null)
+        console.log(error)
+      }
+      if(data) {
+        setItems(data)
+        setFetchError(null)
+        console.log(data);
+      }
+    }
+    getItems()
+  },[])
+
   return (
     <Main>
-        <section className="flex flex-col md:flex-row items-center justify-between my-8">
-            <h5 className="text-3xl font-semibold text-center md:text-left">Kami menyediakan kamar<br />kost dengan berbagai pilihan</h5>
-            <div className="flex flex-row items-center gap-x-2 ml-auto mt-8 md:mt-0">
-                <p className="text-base">Urutkan</p>
-                <Select className="w-40" options={filters} placeholder/>
-            </div>
-        </section>
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Cards/>
-            <Cards/>
-            <Cards/>
-        </section>
+      {fetchError && (<p>{fetchError}</p>)}
+      <section className="flex flex-col md:flex-row items-center justify-between my-8">
+        <h5 className="text-3xl font-semibold text-center md:text-left">
+          Kami menyediakan kamar<br />kost dengan berbagai pilihan
+        </h5>
+      </section>
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {items &&
+          items.map((item) => (
+            <Cards key={item.id} title={item.nama_kos} alamat={item.alamat_kos} harga={item.harga_kos} fasilitas={item.fasilitas_kos} gambar={item.gambar_kost}/>
+          ))}
+      </section>
     </Main>
-  )
+  );
 }
 
-export default Home
+export default Home;

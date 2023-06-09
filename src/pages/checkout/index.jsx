@@ -1,14 +1,43 @@
-import { Breadcrumb, Input } from "antd"
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from 'react'
+import { Link, useParams } from "react-router-dom"
+import supabase from "../../supabase";
 import {Main} from "../../layout"
-import { Link } from "react-router-dom"
+import { Breadcrumb, Input } from "antd"
 
 function Checkout() {
+  const { name } = useParams();
+  const [item, setItem] = useState([]);
+  const NamaKos = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('tipe_kos')
+        .select()
+        .eq('nama_kos', name)
+        .single();
+  
+      if (error) {
+        console.error(error);
+        return;
+      }
+  
+      setItem(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  
+
+  useEffect(() => {
+    NamaKos()
+  }, []);
   return (
     <Main>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-4 lg:gap-y-0 my-6">
             <section className="flex flex-col">
               <h5 className="text-xl font-semibold">Checkout</h5>
-              <Breadcrumb className="mt-1" items={[{title: <Link to="/">Home</Link>,},{title: <Link to="/detail">Kost Kusumaja</Link>,}]}/>
+              <Breadcrumb items={[{ title: <Link to="/">Home</Link> }, { title: <Link to={`/detail/${item.nama_kos}`}>{item.nama_kos}</Link>}, { title: (<p>Checkout</p>)}]}/>
             </section>
             <section className="grid grid-cols-1 lg:grid-cols-2 gap-4">
               {/* row 1 */}
