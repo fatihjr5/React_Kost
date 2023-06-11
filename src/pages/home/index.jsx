@@ -17,12 +17,10 @@ function Home() {
       if(error) {
         setFetchError('No data show')
         setItems(null)
-        console.log(error)
       }
       if(data) {
         setItems(data)
         setFetchError(null)
-        console.log(data);
       }
     }
     getItems()
