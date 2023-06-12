@@ -7,6 +7,7 @@ import supabase from "../../supabase";
 // icons
 import { AiOutlineEdit } from 'react-icons/ai'
 import { BsTrash } from 'react-icons/bs'
+
 function Admin() {
   const [fetchError, setFetchError] = useState();
   const [open, setOpen] = useState(false);
