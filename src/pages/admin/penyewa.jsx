@@ -5,6 +5,7 @@ import supabase from "../../supabase";
 // icons
 import { AiOutlineEdit } from 'react-icons/ai'
 import { BsTrash } from 'react-icons/bs'
+
 function Penyewa() {
   const [fetchError, setFetchError] = useState()
   const [items, setItems] = useState([])

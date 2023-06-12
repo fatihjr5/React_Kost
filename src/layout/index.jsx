@@ -20,8 +20,8 @@ function AdminLayout({ children }) {
           <img className='w-32' src="img/kusuma_logo.svg" alt="" />
           <div className='flex items-center gap-x-4 ml-auto'>
             <section className='flex md:flex-row gap-x-2'>
-              <Link to="/admin" className='text-base font-semibold'>Kost</Link>
-              <Link to="/penyewa" className='text-base font-normal text-gray-400'>Penyewa Kost</Link>
+              <Link to="/admin" className='text-sm font-normal hover:text-[#7000FD] hover:font-medium transition text-gray-400'>Kost</Link>
+              <Link to="/penyewa" className='text-sm font-normal hover:text-[#7000FD] hover:font-medium transition text-gray-400'>Penyewa Kost</Link>
             </section>
             <button className='w-20 ring-1 ring-gray-200 text-gray-600 rounded-md py-2'>Keluar</button>
           </div>

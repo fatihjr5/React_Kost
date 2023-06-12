@@ -28,11 +28,11 @@ const router = createBrowserRouter([
     element: (<Success/>)
   },
   {
-    path: "/admin",
+    path: "admin",
     element: (<Admin/>)
   },
   {
-    path: "/penyewa",
+    path: "penyewa",
     element: (<Penyewa/>)
   },
 ])
