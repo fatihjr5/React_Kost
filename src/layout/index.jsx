@@ -17,7 +17,7 @@ function AdminLayout({ children }) {
   return (
     <> 
         <section className='px-6 md:px-10 lg:px-24 py-6 grid grid-cols-2 items-center'>
-          <img className='w-32' src="img/kusuma_logo.svg" alt="" />
+          <h5 className='text-[#7000FD] text-lg font-semibold'>Puri Adiwijoyo</h5>
           <div className='flex items-center gap-x-4 ml-auto'>
             <section className='flex md:flex-row gap-x-2'>
               <Link to="/admin" className='text-sm font-normal hover:text-[#7000FD] hover:font-medium transition text-gray-400'>Kost</Link>

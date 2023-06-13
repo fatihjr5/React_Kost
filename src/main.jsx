@@ -7,8 +7,9 @@ import Home from './pages/home/index';
 import Detail from './pages/detail/index';
 import Checkout from './pages/checkout';
 import Success from './pages/success';
-import Admin from './pages/admin';
 import Penyewa from './pages/admin/penyewa';
+import AdminKost from './pages/admin/kost';
+
 
 const router = createBrowserRouter([
   {
@@ -28,11 +29,11 @@ const router = createBrowserRouter([
     element: (<Success/>)
   },
   {
-    path: "admin",
-    element: (<Admin/>)
+    path: "/kelola-kost",
+    element: (<AdminKost/>)
   },
   {
-    path: "penyewa",
+    path: "/kelola-penyewa",
     element: (<Penyewa/>)
   },
 ])

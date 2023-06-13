@@ -8,7 +8,7 @@ import supabase from "../../supabase";
 import { AiOutlineEdit } from 'react-icons/ai'
 import { BsTrash } from 'react-icons/bs'
 
-function AdminControl () {
+function AdminKost () {
   const [fetchError, setFetchError] = useState();
   const [open, setOpen] = useState(false);
   const [items, setItems] = useState([]);
@@ -189,4 +189,4 @@ function AdminControl () {
   )
 }
 
-export default AdminControl
+export default AdminKost
