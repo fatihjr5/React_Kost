@@ -20,8 +20,8 @@ function AdminLayout({ children }) {
           <h5 className='text-[#7000FD] text-lg font-semibold'>Puri Adiwijoyo</h5>
           <div className='flex items-center gap-x-4 ml-auto'>
             <section className='flex md:flex-row gap-x-2'>
-              <Link to="/admin" className='text-sm font-normal hover:text-[#7000FD] hover:font-medium transition text-gray-400'>Kost</Link>
-              <Link to="/penyewa" className='text-sm font-normal hover:text-[#7000FD] hover:font-medium transition text-gray-400'>Penyewa Kost</Link>
+              <Link to="/kelola-kost" className='text-sm font-normal hover:text-[#7000FD] hover:font-medium transition text-gray-400'>Kost</Link>
+              <Link to="/kelola-penyewa" className='text-sm font-normal hover:text-[#7000FD] hover:font-medium transition text-gray-400'>Penyewa Kost</Link>
             </section>
             <button className='w-20 ring-1 ring-gray-200 text-gray-600 rounded-md py-2'>Keluar</button>
           </div>

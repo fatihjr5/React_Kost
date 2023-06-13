@@ -7,8 +7,11 @@ import Home from './pages/home/index';
 import Detail from './pages/detail/index';
 import Checkout from './pages/checkout';
 import Success from './pages/success';
-import Penyewa from './pages/admin/penyewa';
 import AdminKost from './pages/admin/kost';
+import AdminPenyewa from './pages/admin/penyewa';
+import CreateKost from './pages/admin/kost/create';
+import EditKost from './pages/admin/kost/edit';
+import EditPenyewa from './pages/admin/penyewa/edit';
 
 
 const router = createBrowserRouter([
@@ -33,8 +36,20 @@ const router = createBrowserRouter([
     element: (<AdminKost/>)
   },
   {
+    path: "/kelola-kost/tambah",
+    element: (<CreateKost/>)
+  },
+  {
+    path: "/kelola-kost/edit/:id",
+    element: (<EditKost/>)
+  },
+  {
     path: "/kelola-penyewa",
-    element: (<Penyewa/>)
+    element: (<AdminPenyewa/>)
+  },
+  {
+    path: "/kelola-penyewa/edit/:id",
+    element: (<EditPenyewa/>)
   },
 ])
 

@@ -1,29 +1,52 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
-import { AdminLayout } from "../../layout"
-import supabase from "../../supabase";
+import { AdminLayout } from "../../../layout";
+import supabase from "../../../supabase";
 // icons
 import { AiOutlineEdit } from 'react-icons/ai'
 import { BsTrash } from 'react-icons/bs'
+import { Link } from "react-router-dom";
 
-function Penyewa() {
+function AdminPenyewa() {
   const [fetchError, setFetchError] = useState()
   const [items, setItems] = useState([])
-  useEffect(() => {
-    const getItems = async() => {
-      const {data, error} = await supabase
-      .from('booking')
-      .select('*')
+  // get data penyewa
+  const getItems = async() => {
+    const {data, error} = await supabase
+    .from('booking')
+    .select('*')
 
-      if(error) {
-        setFetchError('No data show')
-        setItems(null)
-      }
-      if(data) {
-        setItems(data)
-        setFetchError(null)
-      }
+    if(error) {
+      setFetchError('No data show')
+      setItems(null)
     }
+    if(data) {
+      setItems(data)
+      setFetchError(null)
+    }
+  }
+  // delete data penyewa
+  const deletePenyewa = async (itemId) => {
+    try {
+      const { error } = await supabase
+        .from('booking')
+        .delete()
+        .eq('id', itemId);
+
+      if (error) {
+        console.error('Error deleting kos:', error.message);
+        return;
+      }
+
+      console.log('Kos deleted successfully');
+      // Refresh the list after deletion
+      getItems();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    
     getItems()
   },[])
   return (
@@ -52,13 +75,19 @@ function Penyewa() {
                               <td className="px-6 py-4">{item.kos_dipilih}</td>
                               <td className="px-6 py-4">{item.no_hp}</td>
                               <td className="px-6 py-4 whitespace-nowrap">{item.tgl_masuk}</td>
-                              <td className="px-6 py-4">{item.ktp}</td>
-                              <td className="px-6 py-4">{item.bukti_pembayaran}</td>
+                              <td className="px-6 py-4">
+                                <img src={item.ktp} alt={item.nama_penyewa} />
+                              </td>
+                              <td className="px-6 py-4">
+                                <img src={item.bukti_pembayaran} alt="Tidak ada" />
+                              </td>
                               <div className="px-6 py-4 flex flex-row items-center gap-x-2">
-                                <button className="bg-slate-400 p-2 rounded-md">
-                                  <AiOutlineEdit className="text-white"/>
+                                <button className="bg-slate-400 hover:bg-[#7000FD] transition p-2 rounded-md">
+                                  <Link to={`/kelola-penyewa/edit/${item.id}`}>
+                                    <AiOutlineEdit className="text-white"/>
+                                  </Link>
                                 </button>
-                                <button className="bg-slate-400 p-2 rounded-md">
+                                <button className="bg-slate-400 p-2 hover:bg-[#7000FD] transition rounded-md" onClick={() => deletePenyewa(item.id)}>
                                   <BsTrash className="text-white"/>
                                 </button>
                               </div>
@@ -71,4 +100,4 @@ function Penyewa() {
   )
 }
 
-export default Penyewa
+export default AdminPenyewa
