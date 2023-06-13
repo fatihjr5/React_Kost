@@ -31,6 +31,7 @@ const router = createBrowserRouter([
     path: "success",
     element: (<Success/>)
   },
+  // admin
   {
     path: "/kelola-kost",
     element: (<AdminKost/>)
